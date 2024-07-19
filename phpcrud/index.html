@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Tamu Perpustakaan</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('img/library.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 20px;
+            margin: 20px 0;
+            line-height: 1.6;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .info-cards {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .icon {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .icon:hover {
+            color: #c7b813;
+        }
+
+        .instagram {
+            color: #e4405f;
+        }
+
+        .whatsapp {
+            color: #25d366;
+        }
+
+        .email {
+            color: #d44638;
+        }
+
+        .instagram:hover {
+            color: #ff6e86;
+        }
+
+        .whatsapp:hover {
+            color: #66e891;
+        }
+
+        .email:hover {
+            color: #ff8775;
+        }
+
+        .button-container {
+            padding: 30px; /* Atur padding atas dan bawah jika diperlukan */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Menengahkan tombol-tombol */
+        }
+
+        .button {
+            padding: 10px 20px; /* Sesuaikan padding horizontal */
+            font-size: 18px;
+            margin: 10px; /* Menambahkan jarak antara tombol */
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s; /* Efek transisi saat hover */
+            min-width: 150px; /* Menentukan lebar minimum yang sama untuk kedua tombol */
+            text-align: center; /* Menyelaraskan teks tombol ke tengah */
+        }
+
+        .admin, .pengunjung {
+            background-color: #e2ac38; /* Warna latar belakang untuk tombol Admin dan Pengunjung */
+        }
+
+        .admin:hover, .pengunjung:hover {
+            background-color: #c7b813; /* Warna latar belakang yang berbeda saat tombol dihover */
+            transform: scale(1.1); /* Efek scaling saat hover */
+        }
+
+        .penutup p {
+            font-size: 20px;
+            margin: 20px 0;
+            line-height: 1.6;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .choose-role {
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Selamat datang di Perpustakaan Kami!</h1>
+            <p>Perpustakaan kami menyediakan berbagai koleksi Buku dengan genre yang berbeda.
+                Perpustakaan kami juga menyediakan buku cerita Sejarah, Modern , pembelajaran sekolah, dan lain-lain.
+                Kami juga menyediakan fasilitas AC, Makanan Ringan, Kopi, dan Teh untuk kepuasan tamu kami.
+            </p>
+            <div class="info-cards">
+                <div class="card">
+                    <h2>Jam Operasional</h2>
+                    <p>Senin - Jumat: 08.00 - 18.00</p>
+                    <p>Sabtu: 09.00 - 15.00</p>
+                    <p>Minggu: Tutup</p>
+                </div>
+                <div class="card">
+                    <h2>Lokasi Kami</h2>
+                    <p>SMKS MULTISTUDY HIGHSCHOOL BATAM</p>
+                    <p>Indonesia, Kepulauan Riau, Batam.</p>
+                </div>
+                <div class="card">
+                    <h2>Hubungi Kami</h2>
+                    <p>Kami Menyediakan Kontak kami supaya anda dapat menghubungi kami untuk booking jam pembacaan.</p>
+                    <p>Berikut Kontak kami :</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/yourinstagramprofile" class="icon instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/yourwhatsappnumber" class="icon whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:info@perpustakaan.com" class="icon email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="penutup">
+                <p>Manfaat membaca buku dapat menambahkan wawasan kita, meredakan stres, mengisi waktu luang, menambah kosakata yang baku dan sopan, mengetahui cerita sejarah, tradisional, modern, dan seterusnya.</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="choose-role">Pilih Peran Anda:</div>
+            <a href="login.php" class="button admin">Admin</a>
+            <a href="pengunjung.php" class="button pengunjung">Pengunjung</a>
+        </div>
+    </div>
+</body>
+</html>

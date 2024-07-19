@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #FF6F61, #F7CAC9, #92A8D1, #88B04B, #B565A7);
+            background-size: 1000% 1000%;
+            animation: gradientBG 20s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .book {
+            padding: 20px;
+            margin: 15px;
+            width: calc(33.333% - 40px);
+            height: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            border-radius: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .book img {
+            width: 60%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .book h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .book p {
+            font-size: 16px;
+            margin: 5px 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .book:hover {
+            transform: translateY(-10px);
+        }
+
+        .book h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #000;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Perpustakaan Online</h1>
+        <div style="text-align: right; margin-bottom: 20px;">
+            <a href="index.html" class="btn">Kembali</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Cari buku...">
+        </div>
+        <div class="book-list">
+            <div class="book">
+                <h3>Novel</h3>
+                <img src="img/buku1.png" alt="Buku 1">
+                <h2>Buku 1</h2>
+                <p>Stok: 10</p>
+            </div>
+            <div class="book">
+                <h3>Komik</h3>
+                <img src="img/komik.png" alt="Buku 2">
+                <h2>Buku 2</h2>
+                <p>Stok: 5</p>
+            </div>
+            <div class="book">
+                <h3>Saham</h3>
+                <img src="img/book2.png" alt="Buku 3">
+                <h2>Buku 3</h2>
+                <p>Stok: 8</p>
+            </div>
+            <div class="book">
+                <h3>Biografi</h3>
+                <img src="img/biografi.png" alt="Buku 4">
+                <h2>Buku 4</h2>
+                <p>Stok: 7</p>
+            </div>
+            <div class="book">
+                <h3>Ensiklopedia</h3>
+                <img src="img/ensiko.png" alt="Buku 5">
+                <h2>Buku 5</h2>
+                <p>Stok: 4</p>
+            </div>
+            <div class="book">
+                <h3>Majalah</h3>
+                <img src="img/majalah.png" alt="Buku 6">
+                <h2>Buku 6</h2>
+                <p>Stok: 6</p>
+            </div>
+            <div class="book">
+                <h3>Fiksi</h3>
+                <img src="img/fiksi.png" alt="Buku 7">
+                <h2>Buku 7</h2>
+                <p>Stok: 3</p>
+            </div>
+            <div class="book">
+                <h3>Non-Fiksi</h3>
+                <img src="img/nonfiksi.png" alt="Buku 8">
+                <h2>Buku 8</h2>
+                <p>Stok: 12</p>
+            </div>
+            <div class="book">
+                <h3>Sejarah</h3>
+                <img src="img/sejarah.png" alt="Buku 9">
+                <h2>Buku 9</h2>
+                <p>Stok: 9</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const searchInput = document.getElementById('search');
+        const books = document.querySelectorAll('.book');
+
+        searchInput.addEventListener('keyup', function() {
+            const filter = searchInput.value.toLowerCase();
+            books.forEach(function(book) {
+                const title = book.querySelector('h2').textContent;
+                const category = book.querySelector('h3').textContent;
+                if (title.toLowerCase().includes(filter) || category.toLowerCase().includes(filter)) {
+                    book.style.display = '';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        });
+
+        // Show all books on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            books.forEach(function(book) {
+                book.style.display = '';
+            });
+        });
+    </script>
+</body>
+</html>
+
